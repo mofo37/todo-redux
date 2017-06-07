@@ -1,4 +1,4 @@
-import * as actions from '../constants/todos.constants';
+import * as actions from '../constants/todo.constants';
 
 export function addTodo(payload) {
   return {
