@@ -3,7 +3,7 @@ import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../constants/todo.constants'
 const initialState = {
   todos: [
     {
-      text: 'sample todo',
+      text: 'finish building this todo list using Redux',
       completed: false
     }
   ]
