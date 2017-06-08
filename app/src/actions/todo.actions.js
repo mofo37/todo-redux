@@ -7,16 +7,16 @@ export function addTodo(payload) {
   };
 }
 
-export function removeTodo(payload) {
+export function removeTodo(index) {
   return {
     type: actions.REMOVE_TODO,
-    payload
+    index
   };
 }
 
-export function toggleTodo(payload) {
+export function toggleTodo(index) {
   return {
     type: actions.TOGGLE_TODO,
-    payload
+    index
   };
 }
