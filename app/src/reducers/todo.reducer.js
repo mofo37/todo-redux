@@ -21,11 +21,15 @@ export default function todoApp(state = initialState, action) {
         ]
       };
 
-    case REMOVE_TODO:
+    case REMOVE_TODO: {
+      const index = action.payload;
       return {
-
+        todos: [
+          ...state.todos.slice(0, index),
+          ...state.todos.slice(index + 1)
+        ]
       };
-
+    }
     case TOGGLE_TODO:
       return {
 
