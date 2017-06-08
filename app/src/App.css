@@ -19,7 +19,7 @@
   to { transform: rotate(360deg); }
 }
 
-.TodoList {
-  margin: 2em auto;
-  max-width: 20%;
+.Add-icon {
+  font-size: 1.2em;
+  margin: 0 0 0 .2em;
 }
