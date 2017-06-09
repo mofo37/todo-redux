@@ -1,6 +1,7 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../constants/todo.constants';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/todo.constants';
 
 const initialState = {
+  visibilityFilter: SHOW_ALL,
   todos: [
     {
       text: 'finish building this todo list using Redux',
@@ -55,6 +56,21 @@ export default function todoApp(state = initialState, action) {
       };
     }
 
+    case SHOW_ALL:
+      return {
+
+      };
+
+    case SHOW_COMPLETED:
+      return {
+
+      };
+
+    case SHOW_ACTIVE:
+      return {
+
+      };
+    
     default:
       return state;
   }
