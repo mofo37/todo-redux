@@ -21,23 +21,9 @@ export function toggleTodo(index) {
   };
 }
 
-export function showAll(filter) {
+export function changeFilter(filter) {
   return {
-    type: constants.SHOW_ALL,
-    filter
-  };
-}
-
-export function showCompleted(filter) {
-  return {
-    type: constants.SHOW_COMPLETED,
-    filter
-  };
-}
-
-export function showActive(filter) {
-  return {
-    type: constants.SHOW_ACTIVE,
+    type: constants.CHANGE_FILTER,
     filter
   };
 }
