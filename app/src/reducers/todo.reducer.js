@@ -58,17 +58,18 @@ export default function todoApp(state = initialState, action) {
 
     case SHOW_ALL:
       return {
-
+        visibilityFilter: action.filter
       };
 
     case SHOW_COMPLETED:
+      console.log('clicked!');
       return {
-
+        visibilityFilter: action.filter
       };
 
     case SHOW_ACTIVE:
       return {
-
+        visibilityFilter: action.filter
       };
     
     default:
