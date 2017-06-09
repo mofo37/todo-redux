@@ -1,12 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  float: right;
+`;
 
 export default function DeleteButton({ onClick }) {
   return (
-    <button
+    <Button
       className="delete-button"
       onClick={onClick}>
 
       🗑
-    </button>
+    </Button>
   );
 }

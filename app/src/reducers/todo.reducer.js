@@ -5,6 +5,18 @@ const initialState = {
     {
       text: 'finish building this todo list using Redux',
       completed: false
+    },
+    {
+      text: 'don\'t forget to fix the centering, mr. OCD',
+      completed: true
+    },
+    {
+      text: 'see why styled-component function is tripping in Chrome',
+      completed: false
+    },
+    {
+      text: 'enjoy a glass of wine',
+      completed: true
     }
   ]
 };
@@ -22,7 +34,7 @@ export default function todoApp(state = initialState, action) {
       };
 
     case REMOVE_TODO: {
-      const index = action.payload;
+      const index = action.index;
       return {
         todos: [
           ...state.todos.slice(0, index),
@@ -30,10 +42,18 @@ export default function todoApp(state = initialState, action) {
         ]
       };
     }
-    case TOGGLE_TODO:
-      return {
 
+    case TOGGLE_TODO: {
+      const index = action.index;
+      return {
+        todos: state.todos.map((todo, i) => {
+          if (index === i) {
+            todo.completed = !todo.completed;
+          }
+          return todo;
+        })
       };
+    }
 
     default:
       return state;

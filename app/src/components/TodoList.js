@@ -5,8 +5,9 @@ import styled from 'styled-components';
 
 const Ol = styled.ol`
   margin: 2em auto;
-  max-width: 20%;
+  max-width: 38%;
   padding-left: 0;
+  list-style-type: none;
 `;
 
 export default function TodoList({ todos, addTodo, removeTodo, toggleTodo }) {
@@ -15,15 +16,6 @@ export default function TodoList({ todos, addTodo, removeTodo, toggleTodo }) {
       <Ol className="TodoList">
         {todos.map((todo, i) => (
           <Todo key={i} addTodo={addTodo} removeTodo={removeTodo} toggleTodo={toggleTodo} todo={todo} i={i}/>
-          /*<Li key={i}>
-            {todo.text}
-            <br/>
-            <Span>
-              Completed:
-            </Span>
-            <DeleteButton onClick={() => removeTodo(i)}/>
-            {todo.completed ? <Input type="checkbox" checked onChange={() => toggleTodo(i)}/> : <Input type="checkbox" onChange={() => toggleTodo(i)}/>}
-          </Li> */
         ))}
       </Ol>
       <AddTodo handleSubmit={addTodo}/>

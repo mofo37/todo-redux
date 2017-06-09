@@ -1,35 +1,27 @@
 import React from 'react';
 import DeleteButton from '../components/DeleteButton';
-
 import styled from 'styled-components';
-
-const Li = styled.li`
-  margin: 1em 0;
-`;
 
 const Input = styled.input`
   float: right;
   margin-top: .45em;
 `;
 
-const Span = styled.span`
-  font-size: .9em;
-  color: #444;
-`;
-
 export default function Todo({ todo, i, removeTodo, toggleTodo }) {
+  const Li = styled.li`
+    margin: 1em 0;
+    padding-left: 45px;
+    text-decoration: ${todo => todo.completed ? 'line-through' : 'none'};
+  `;
+  
   return (
-    <Li>
-      {todo.text}
-      <br />
-      <Span>
-        Completed:
-      </Span>
-      <DeleteButton onClick={() => removeTodo(i)} />
-      
-      {todo.completed 
-        ? <Input type="checkbox" checked onChange={() => toggleTodo(i)} /> 
-        : <Input type="checkbox" onChange={() => toggleTodo(i)} />}
-    </Li>
+    <div>
+      <Li>
+        {todo.text}
+        <DeleteButton onClick={() => removeTodo(i)} />
+        <Input type="checkbox" checked={todo.completed} onChange={() => toggleTodo(i)} />
+      </Li>
+    <hr/>
+    </div>
   );
 }

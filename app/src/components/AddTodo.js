@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MdAddCircleOutline from 'react-icons/lib/md/add-circle-outline';
 
 const Div = styled.div`
-  width: 40%;
+  width: 30%;
   margin: 0 auto;
 `;
 
