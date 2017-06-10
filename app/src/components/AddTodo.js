@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MdAddCircleOutline from 'react-icons/lib/md/add-circle-outline';
+import PropTypes from 'prop-types';
 
 const Div = styled.div`
   width: 30%;
@@ -39,3 +40,7 @@ export default function AddTodo({ handleSubmit }) {
     </Div>
   );
 }
+
+AddTodo.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};

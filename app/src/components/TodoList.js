@@ -4,6 +4,7 @@ import Todo from '../components/Todo';
 import AddTodo from '../components/AddTodo';
 import * as filters from '../constants/filter.constants';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Div = styled.div`
   margin-top: 1em;
@@ -19,7 +20,6 @@ const Ol = styled.ol`
 const getValue = constant => constant.toLowerCase().replace('_', ' ');
 
 export default function TodoList({ todos, addTodo, removeTodo, toggleTodo, changeFilter }) {  
-
   return (
     <div>
       <Div>
@@ -36,3 +36,11 @@ export default function TodoList({ todos, addTodo, removeTodo, toggleTodo, chang
     </div>
   );
 }
+
+TodoList.prototypes = {
+  todos: PropTypes.array.isRequired,
+  addTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired
+};
