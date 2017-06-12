@@ -8,6 +8,6 @@ Do **NOT** copy and try and adapt the code that you see.
 **Do** build your own and get inspiration and ideas and help from the code that you find online.
 
 
-## Rubric *10pts*
-- All the TODO MVC requirements **5pts**
-- Idomatic `redux` and `react-redux` **5pts**
+## Rubric *15pts*
+- All the TODO MVC requirements **8pts**
+- Idomatic `redux` and `react-redux` **7pts**
