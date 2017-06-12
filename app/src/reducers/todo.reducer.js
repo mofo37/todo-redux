@@ -26,35 +26,29 @@ export default combineReducers({ todos, visibilityFilter });
 function todos(state = initialTodos, action) {
   switch (action.type) {
     case ADD_TODO:
-      return {
-        todos: [
-          ...state.todos, {
-            text: action.payload,
-            completed: false
-          }
-        ]
-      };
+      return [
+        ...state, {
+          text: action.payload,
+          completed: false
+        }
+      ];
 
     case REMOVE_TODO: {
       const index = action.index;
-      return {
-        todos: [
-          ...state.todos.slice(0, index),
-          ...state.todos.slice(index + 1)
-        ]
-      };
+      return [
+        ...state.slice(0, index),
+        ...state.slice(index + 1)
+      ];
     }
 
     case TOGGLE_TODO: {
       const index = action.index;
-      return {
-        todos: state.todos.map((todo, i) => {
-          if (index === i) {
-            todo.completed = !todo.completed;
-          }
-          return todo;
-        })
-      };
+      return state.map((todo, i) => {
+        if (index === i) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
     }
 
     default:
