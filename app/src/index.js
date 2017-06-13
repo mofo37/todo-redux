@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import reducer from './reducers/todo.reducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import './index.css';
 
 const store = createStore(reducer);
 

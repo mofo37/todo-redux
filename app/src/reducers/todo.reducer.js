@@ -45,7 +45,10 @@ function todos(state = initialTodos, action) {
       const index = action.index;
       return state.map((todo, i) => {
         if (index === i) {
-          todo.completed = !todo.completed;
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
         }
         return todo;
       });
