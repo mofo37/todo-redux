@@ -9,11 +9,11 @@ const initialState = {
   ]
 };
 
-export default function Todo(state= initialState, {type, payload, id}) {
+export default function Todo(state = initialState, {type, payload, id}) {
 
   switch (type) {
     case ADD_TODO:
-      return { todos: [...state.todos, { name: payload, completed: false, id }]};
+      return { todos: [...state.todos, { name: payload, completed: false, id }] };
 
     case REMOVE_TODO:
       return {

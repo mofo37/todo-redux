@@ -5,7 +5,7 @@ import Todo from './components/Todo';
 
 const mapStateToProps = (state) => state;
 
-function mapDispatchtoProps (dispatch) {
+function mapDispatchtoProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
 
