@@ -1,14 +1,23 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from './constants';
 
-export default function Todo(state, {type, payload, id}) {
+const initialState = {
+  todos: [
+    {
+      text: 'go to ballet class',
+      completed: false
+    }
+  ]
+};
+
+export default function Todo(state= initialState, {type, payload, id}) {
 
   switch (type) {
     case ADD_TODO:
-      return { todos: [...state.todos, { name: payload, completed: false, id }] };
+      return { todos: [...state.todos, { name: payload, completed: false, id }]};
 
     case REMOVE_TODO:
       return {
-        todos: state.todos.splice((result, item) => {
+        todos: state.todos.slice((result, item) => {
           if (item.id.toString() !== payload) {
             result.push(item);
           }
