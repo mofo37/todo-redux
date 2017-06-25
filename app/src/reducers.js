@@ -17,7 +17,7 @@ export default function Todo(state= initialState, {type, payload, id}) {
 
     case REMOVE_TODO:
       return {
-        todos: state.todos.slice((result, item) => {
+        todos: state.todos.reduce((result, item) => {
           if (item.id.toString() !== payload) {
             result.push(item);
           }

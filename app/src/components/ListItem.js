@@ -3,7 +3,6 @@ import React from 'react';
 export default function ListItem(props) {
 
 const { id, toggleTodo, removeTodo, name } = props;
-let input;
 
   return (
     <div>
