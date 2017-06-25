@@ -21,7 +21,8 @@ export default function Todo(props) {
       }}>
         <label>What do you need to do?<input ref={node => {
           input = node;
-        }} /></label>
+        }} />
+        </label>
       </form>
     </div>
   );

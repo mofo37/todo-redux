@@ -8,9 +8,9 @@ let input;
   return (
     <div>
       <h1>{name}</h1>
-      <input value={id} onClick={(e) => {
+      <label><input value={id} onClick={(e) => {
         toggleTodo(e.target.value);
-      }} type='checkbox' />
+      }} type='checkbox' /></label>
       <button value={id} onClick={(e) => {
         removeTodo(e.target.value);
       }} type='checkbox'>Delete</button>
