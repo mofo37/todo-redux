@@ -1,6 +1,7 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from './constants';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_FILTER } from './constants';
 
 let Id = 0;
+
 export function addTodo(payload = 'eat ice cream') {
   return {
     type: ADD_TODO,
@@ -23,9 +24,12 @@ export function toggleTodo(payload) {
   };
 }
 
-export function setVisibilityFilter(payload) {
+export function setFilter(payload) {
   return {
-    type: SET_VISIBILITY_FILTER,
+    type: SET_FILTER,
     payload
   };
 }
+
+
+

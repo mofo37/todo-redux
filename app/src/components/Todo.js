@@ -1,16 +1,25 @@
 import React from 'react';
-import ListItem from './ListItem'
+import ListItem from './ListItem';
 
 export default function Todo(props) {
 
-  const { addTodo, removeTodo, toggleTodo, todos } = props;
+  const { addTodo, removeTodo, toggleTodo, todos, setFilter, filter } = props;
 
   let input;
+  let filteredTodos = todos.filter((item, i) => {
+    if(filter === 'Active') {
+      return !item.completed;
+    } else if(filter === 'Completed') {
+      return item.completed;
+    } else {
+      return true;
+    }
+  });
 
   return (
     <div>
       <ul>
-        {todos.map((item, i) => {
+        {filteredTodos.map((item, i) => {
           return <ListItem key={i} id={item.id} name={item.name} toggleTodo={toggleTodo} completed={item.completed} removeTodo={removeTodo} />;
         })}
       </ul>
@@ -24,6 +33,9 @@ export default function Todo(props) {
         }} />
         </label>
       </form>
+      <button onClick={() => { setFilter('Completed');}}>Completed</button>
+      <button onClick={() => { setFilter('Active');}}>Active</button>
+      <button onClick={() => { setFilter('All');}}>All</button>
     </div>
   );
 }

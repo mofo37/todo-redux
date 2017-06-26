@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from './constants';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_FILTER } from './constants';
 
 const initialState = {
   todos: [
@@ -13,10 +13,11 @@ export default function Todo(state = initialState, {type, payload, id, action}) 
 
   switch (type) {
     case ADD_TODO:
-      return { todos: [...state.todos, { name: payload, completed: false, id }] };
+      return { todos: [...state.todos, { name: payload, completed: false, id }], filter: 'All' };
 
     case REMOVE_TODO:
       return {
+        filter: state.filter,
         todos: state.todos.reduce((result, item) => {
           if (item.id.toString() !== payload) {
             result.push(item);
@@ -27,6 +28,7 @@ export default function Todo(state = initialState, {type, payload, id, action}) 
 
     case TOGGLE_TODO:
       return {
+        filter: state.filter,
         todos: state.todos.map(item => {
           if (item.id.toString() === payload) {
             return { ...item, completed: !item.completed };
@@ -34,12 +36,11 @@ export default function Todo(state = initialState, {type, payload, id, action}) 
           return item;
         })
       };
-
-    case SET_VISIBILITY_FILTER:
+    
+    case SET_FILTER:
       return {
-        todos: state.todos.filter(item => {
-          return item.completed === true;
-        })
+        todos: state.todos, 
+        filter: payload
       };
 
     default:
