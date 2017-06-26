@@ -9,14 +9,14 @@ import reducers from './reducers';
 import thunk from 'redux-thunk';
 
 const store = createStore(reducers, { todos: [] },
-    compose(
-        applyMiddleware(thunk),
-        window.devToolsExtension ? window.devToolsExtension() : f => f)
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f)
 );
 
 ReactDOM.render(
-    < Provider store={store}>
-        <App />
-    </Provider>
-    , document.getElementById('root'));
+  < Provider store={store}>
+    <App />
+  </Provider>
+  , document.getElementById('root'));
 registerServiceWorker();

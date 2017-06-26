@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from './constants';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from './constants';
 
 const initialState = {
   todos: [
@@ -9,7 +9,7 @@ const initialState = {
   ]
 };
 
-export default function Todo(state = initialState, {type, payload, id}) {
+export default function Todo(state = initialState, {type, payload, id, action}) {
 
   switch (type) {
     case ADD_TODO:
@@ -32,6 +32,13 @@ export default function Todo(state = initialState, {type, payload, id}) {
             return { ...item, completed: !item.completed };
           }
           return item;
+        })
+      };
+
+    case SET_VISIBILITY_FILTER:
+      return {
+        todos: state.todos.filter(item => {
+          return item.completed === true;
         })
       };
 
